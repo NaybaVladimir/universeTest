@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактировать список планет</title>
+</head>
+<body>
+<form th:method="PATCH" th:action="@{/ruler/planet/{name} (name=${ruler.getName()})}">
+    <div th:each="planet : ${planets}">
+        <input type="checkbox" th:if="${planet.getRuler()==null}" name="planet" th:value="${planet.getName()}" th:text="${planet.getName()}">
+
+    </div>
+    <input type="submit" value="Добавить">
+</form>
+
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+<title>Главное меню</title>
+</head>
+<body>
+<p><b>Навести порядок во вселенной?!</b></p>
+<br/>
+<form th:method="GET" th:action="@{/ruler}">
+    <input type="submit" value="Разобраться с правителями">
+</form>
+<br/>
+<form th:method="GET" th:action="@{/planet}">
+    <input type="submit" value="Разобраться с планетами">
+</form>
+
+</html>

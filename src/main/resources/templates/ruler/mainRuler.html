@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Управлять правителями</title>
+</head>
+<body>
+<form th:method="GET" th:action="@{/ruler/newRuler}">
+    <input type="submit" value="Пополнить список">
+</form>
+
+<form th:method="Get" th:action="@{/}">
+    <input type="submit" value="В главное меню">
+</form>
+<hr/>
+<table border="1">
+    <td>
+        <form th:method="GET" th:action="@{/ruler/freeRulers}">
+            <input type="submit" value="Показать бездельников">
+        </form>
+    </td>
+    <td>
+        <form th:method="GET" th:action="@{/ruler/top}">
+            <input type="submit" value="ТОП-10">
+        </form>
+    </td>
+    <td>
+        <form th:method="GET" th:action="@{/ruler}">
+            <input type="submit" value="Показать всех">
+        </form>
+    </td>
+</table>
+<br/>
+<table border="1">
+    <tr>
+        <td>Имя</td>
+        <td>Возраст</td>
+        <td>Список подконтрольных планет</td>
+    </tr>
+    <div th:each="ruler : ${rulers}">
+        <tr>
+            <td th:text="${ruler.getName()}">Имя</td>
+            <td th:text="${ruler.getAge()}">Возраст</td>
+            <td>
+
+                <form th:method="PATCH" th:if="${(ruler.getPlanets().size())>0}"
+                      th:action="@{/ruler/deletePlanet/{name} (name=${ruler.getName()})}">
+                    <div th:each="planet : ${ruler.getPlanets()}">
+
+                        <input type="checkbox" name="planets" th:value="${planet.getName()}"
+                               th:text="${planet.getName()}">
+
+
+                    </div>
+                    <input type="submit" value="удалить">
+                </form>
+
+            </td>
+            <td>
+                <form th:method="GET" th:action="@{/ruler/planet/{name}(name=${ruler.getName()})}">
+                    <input type="submit" value="Пополнить список планет">
+                </form>
+            </td>
+            <td>
+                <form th:method="GET" th:action="@{/ruler/edit/{name}(name=${ruler.getName()})}">
+                    <input type="submit" value="Редактировать данные правителя">
+                </form>
+            </td>
+            <td>
+                <form th:method="DELETE" th:action="@{/ruler/delete/{name}(name=${ruler.getName()})}">
+                    <input type="submit" value="Удалить правителя">
+                </form>
+            </td>
+        </tr>
+    </div>
+</table>
+</body>
+</html>
