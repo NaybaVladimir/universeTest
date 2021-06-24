@@ -2,7 +2,7 @@
 java 11.0.10
 posgresql 5.0
 Apache Maven 3.6.3
-
+sql-файлы лежат по пути: universe/table
 
 
 Тестовое задание
