@@ -8,6 +8,8 @@ Apache Maven 3.6.3
 sql-файлы лежат по пути: universe/table
 
 
+
+
 Тестовое задание
 
 3141 год. 
