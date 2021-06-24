@@ -10,7 +10,7 @@
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-        <start-class>org.example.isistest.Application</start-class>
+        <start-class>org.example.universe.Application</start-class>
     </properties>
     <parent>
         <groupId>org.springframework.boot</groupId>
